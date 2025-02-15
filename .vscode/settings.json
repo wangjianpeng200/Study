@@ -3,5 +3,9 @@
     "marscode.codeCompletionPro": {
         "enableCodeCompletionPro": false
     },
-    "marscode.enableInlineCommand": true
+    "marscode.enableInlineCommand": true,
+    "files.associations": {
+        "vector": "cpp",
+        "iostream": "cpp"
+    }
 }

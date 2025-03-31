@@ -1,0 +1,54 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <functional>
+#include <climits>
+#include <cstdlib>
+#include <numeric>
+
+using namespace std;
+//排列和组合的区别是，排列不需要从startindex开始，每次都需要从0开始
+//但是其中就涉及到去重，需要使used动态数组进行去重，不访问已经加入path中的元素
+//这一点于组合去重需要区别一下，组合是去除同一层次的重，所以访问过的元素在递归时是可以继续访问的
+
+
+class Solution {
+private:
+    vector<vector<int>> result;
+    vector<int> path;
+    void backtracking(const vector<int>& nums, vector<bool> used)
+    {
+        if (path.size() == 3)
+        {
+            result.push_back(path);
+        }
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (used[i] == true)
+            {
+                continue;
+            }
+            path.push_back(nums[i]);
+            used[i] = true;
+            backtracking(nums,used);
+            used[i] = false;
+            path.pop_back();
+        }
+    }
+    
+
+public:
+    vector<vector<int>> permute(vector<int>& nums) {
+        path.clear();
+        result.clear();
+        vector<bool> used(nums.size(), false);
+        backtracking(nums, false);
+        return result;
+    }
+};

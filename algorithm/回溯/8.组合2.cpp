@@ -15,37 +15,57 @@
 using namespace std;
 
 
-//Óë×éºÏÏà±È£¬Çø±ðÔÚÓÚcandidatesÖÐµÄÔªËØÓÐÖØ¸´µÄ£¬ËùÒÔÐèÒª½øÐÐÈ¥ÖØµÄ²Ù×÷¡£
-//»ØËÝµÄ×éºÏ¿ÉÒÔ¿´×÷Ò»¿ÃÊ÷µÄÉî¶È±éÀú£¬È¥ÖØÊÇÈ¥Í¬Ò»²ãµÄÖØ¸´£¬¶ø²»ÊÇÉî¶ÈÉÏµÄÖØ¸´
+// //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½candidatesï¿½Ðµï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½È¥ï¿½ØµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½
+// //ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½Ï¿ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È±ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½È¥Í¬Ò»ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½Ø¸ï¿½
+
+
+// class Solution
+// {
+// public:
+// 	vector<vector<int>> result; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// 	vector<int> path;           // Â·ï¿½ï¿½ï¿½ï¿½ï¿½
+// 	void backtracking(const vector<int>& candidates, int target, int sum, int start)
+// 	{
+// 		if (sum >= target)
+// 		{
+// 			if (sum == target)
+// 			{
+// 				result.push_back(path);
+// 			}
+// 			return;
+// 		}
+// 		for (int i = start; i < candidates.size(); i++)
+// 		{
+// 			if (i > start && candidates[i] == candidates[i - 1])
+// 			{
+// 				continue;
+// 			}
+// 			path.push_back(candidates[i]);
+// 			sum += candidates[i];
+// 			backtracking(candidates, target, sum, i);
+// 			sum -= candidates[i];
+// 			path.pop_back();
+// 		}
+// 	}
+// 	vector<vector<int>> combinationSum2(vector<int>& candidates, int target)
+// 	{
+// 		path.clear();
+// 		result.clear();
+// 		sort(candidates.begin(), candidates.end());
+// 		backtracking(candidates, target, 0, 0);
+// 		return result;
+// 	}
+// };
 
 
 class Solution
 {
 public:
-	vector<vector<int>> result; // ±£´æ½á¹û
-	vector<int> path;           // Â·¾¶½á¹û
+	vector<vector<int>> result; 
+	vector<int> path;           
 	void backtracking(const vector<int>& candidates, int target, int sum, int start)
 	{
-		if (sum >= target)
-		{
-			if (sum == target)
-			{
-				result.push_back(path);
-			}
-			return;
-		}
-		for (int i = start; i < candidates.size(); i++)
-		{
-			if (i > start && candidates[i] == candidates[i - 1])
-			{
-				continue;
-			}
-			path.push_back(candidates[i]);
-			sum += candidates[i];
-			backtracking(candidates, target, sum, i);
-			sum -= candidates[i];
-			path.pop_back();
-		}
+		if(sum)
 	}
 	vector<vector<int>> combinationSum2(vector<int>& candidates, int target)
 	{

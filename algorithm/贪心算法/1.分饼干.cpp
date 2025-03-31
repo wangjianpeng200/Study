@@ -1,6 +1,23 @@
-class Solution {
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <stack>
+#include <algorithm>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
+#include <cmath>
+#include <functional>
+#include <climits>
+#include <cstdlib>
+#include <numeric>
+
+using namespace std;
+
+class Solution
+{
 public:
-    int findContentChildren(vector<int>& g, vector<int>& s)
+    int findContentChildren(vector<int> &g, vector<int> &s)
     {
         sort(g.begin(), g.end());
         sort(s.begin(), s.end());

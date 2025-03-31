@@ -46,7 +46,7 @@ void GraphMtx::InitGraph()
     this->Edge=new int* [MaxVertices];//创建边指向的权
     for(int i=0;i<this->MaxVertices;i++)
     {
-        this->Edge[i]=new int [MaxVertices];//开辟权值空间
+        this->Edge[i]=new int [MaxVertices];//开辟权值空间，edge[i]是一个指针，指向一个一维数组
     }
     for(int i=0;i<this->MaxVertices;++i)
     {

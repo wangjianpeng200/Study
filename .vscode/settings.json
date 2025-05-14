@@ -8,6 +8,8 @@
         "vector": "cpp",
         "iostream": "cpp",
         "string": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "unordered_set": "cpp",
+        "algorithm": "cpp"
     }
 }

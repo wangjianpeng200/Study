@@ -1,12 +1,14 @@
 #include<iostream>
 #include<vector>
 #include<queue>
+using namespace std;
+
 
 class Solution {
     public:
         int removeElement(vector<int>& nums, int val) {
             int slow=0; //定义快慢指针
-            for(fast=0;fast<nums.size();fast++) //遍历数组
+            for(int fast=0;fast<nums.size();fast++) //遍历数组
             {
                 if(nums[fast]!=val) //如果当前元素不等于val
                 {

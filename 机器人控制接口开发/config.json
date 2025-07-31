@@ -1,0 +1,17 @@
+{
+  "robot": 
+  {
+    "cameras": 
+    {
+      "front": {"type": "opencv","device": "/dev/video0", "fps": 30,"width": 640,"height": 480,"rotation": 90},
+      "wrist": {"type": "opencv","device": "/dev/video2","fps": 30,"width": 640, "height": 480, "rotation": 180 }
+    },
+    "arms": 
+    {
+      "left": {"type": "Gen72","ip": "192.168.1.2", "init_pose": [0, 0, 0, 0, 0, 0 ,0, 0]}
+    },
+    "arm_motor_ids":["shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex","wrist_roll", "wrist_1", "wrist_2", "gripper"
+    ]
+  },
+  "zmq": {"ip": "192.168.1.1","command_port": 5555, "video_port": 5556}
+}

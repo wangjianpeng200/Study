@@ -39,4 +39,19 @@ int main()
     return 0;
 }
 //对于内置的数据类型的表达式的运算符是不可能改变的
-//不要滥用运算符重载
+//不要滥用运算符重
+
+class point
+{
+    public:
+    int x;
+    int y;
+    point(int a,int b):x(a),y(b)
+    {
+    }
+    point operator+(const point& p)
+    {
+        return point(x+p.x,y+p.y);
+    }
+}
+ 

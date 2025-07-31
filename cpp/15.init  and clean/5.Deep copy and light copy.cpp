@@ -15,9 +15,9 @@ class person
         cout<<"person构造函数的调用"<<endl;
     }
   
-   person(int age,int hi)
+    person(int age,int hi)
     {
-        m_hi=new int(hi);//用指针接收堆区的数据
+        m_hi=new int(hi);//用指针接收堆区的数据 
         m_age=age;  
         cout<<"person有参函数的调用"<<endl;
     }

@@ -7,9 +7,13 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "-std=c++17", // 指定 C++ 标准为 C++11 或更高版本
                 "${file}",
+                "-L",
+                "-lpthread", // 添加线程链接参数
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
+       
             ],
             "options": {
                 "cwd": "${fileDirname}"

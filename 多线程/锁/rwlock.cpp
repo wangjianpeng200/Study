@@ -10,12 +10,18 @@ int number = 0;
 // 定义读写锁
 pthread_rwlock_t rwlock;
 
+
+//pthread_rwlock_init(&rwlock, NULL);
+
+
+
+
 // 写的线程的处理函数
 void* writeNum(void* arg)
 {
     while(1)
     {
-        pthread_rwlock_wrlock(&rwlock);
+        pthread_rwlock_wrlock(&rwlock);//写锁定
         int cur = number;
         cur ++;
         number = cur;

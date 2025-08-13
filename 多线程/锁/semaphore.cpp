@@ -1,7 +1,6 @@
 // 信号量主要用于进程和线程之间的同步和互斥,实际上是一个非负的证书计数器，当信号量大于0时可以访问
 #include <semaphore.h>
 
-
 sem_t sem;
 
 int sem_init(sem_t *sem, int pshared, unsigned int value); //
@@ -20,6 +19,9 @@ int sem_trywait(&sem);
 int sem_post(&sem);
 // 获取信号量的值
 sem_getvalue(&sem);
+
+
+
 
 void semaphore_test()
 {

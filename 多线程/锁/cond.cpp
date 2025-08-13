@@ -37,7 +37,7 @@ void* producer(void* arg)
         pthread_mutex_unlock(&mutex);
 
         // 生产了任务, 通知消费者消费
-        pthread_cond_broadcast(&cond);
+        pthread_cond_broadcast(&cond);  //唤醒其他线程
 
         // 生产慢一点
         sleep(rand() % 3);
@@ -55,6 +55,7 @@ void* consumer(void* arg)
 //        if(head == NULL)   // 这样写有bug
         while(head == NULL)
         {
+            
             // 任务队列, 也就是链表中已经没有节点可以消费了
             // 消费者线程需要阻塞
             // 线程加互斥锁成功, 但是线程阻塞在这行代码上, 锁还没解开

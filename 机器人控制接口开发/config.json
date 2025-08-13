@@ -8,10 +8,12 @@
     },
     "arms": 
     {
-      "left": {"type": "Gen72","ip": "192.168.1.2", "init_pose": [0, 0, 0, 0, 0, 0 ,0, 0]}
+      "left": {"type": "Gen72","ip": "192.168.1.18", "init_pose": [0, 0, 0, 0, 0, 0 ,0, 0]}
     },
     "arm_motor_ids":["shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex","wrist_roll", "wrist_1", "wrist_2", "gripper"
     ]
+    ,
+    "chassis": {"type": "mick","port": "/dev/ttyUSB0", "baudrate": 115200}
   },
   "zmq": {"ip": "192.168.1.1","command_port": 5555, "video_port": 5556}
 }

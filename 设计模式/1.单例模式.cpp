@@ -9,7 +9,7 @@ using namespace std;
 class Singleton
 {
 public:
-    Singleton(const Singleton &) = delete;
+    Singleton(const Singleton &) = delete;  //删除拷贝构造函数和赋值运算符重载，防止复制实例
     Singleton &operator=(const Singleton &) = delete;
     static Singleton *GetInstance()
     {
@@ -30,3 +30,53 @@ int main()
 {
     Singleton *s1 = Singleton::GetInstance(); // 得到唯一的单例对象
 }
+
+
+
+
+// 饿汉模式：在类加载的时候立刻进行实例化，这样就得到了一个唯一的可用对象。关于这个饿汉模式的类的定义如下
+class TaskQueue
+{
+public:
+    // = delete 代表函数禁用, 也可以将其访问权限设置为私有
+    TaskQueue(const TaskQueue& obj) = delete;
+    TaskQueue& operator=(const TaskQueue& obj) = delete;
+    static TaskQueue* getInstance()
+    {
+        return m_taskQ;
+    }
+private:
+    TaskQueue() = default;
+    static TaskQueue* m_taskQ;
+};
+// 静态成员初始化放到类外部处理
+TaskQueue* TaskQueue::m_taskQ = new TaskQueue;
+
+int main()
+{
+    TaskQueue* obj = TaskQueue::getInstance();
+}
+
+
+
+// 懒汉模式
+class TaskQueue
+{
+public:
+    // = delete 代表函数禁用, 也可以将其访问权限设置为私有
+    TaskQueue(const TaskQueue& obj) = delete;
+    TaskQueue& operator=(const TaskQueue& obj) = delete;
+    static TaskQueue* getInstance()
+    {
+        if(m_taskQ == nullptr)
+        {
+            m_taskQ = new TaskQueue;
+        }
+        return m_taskQ;
+    }
+private:
+    TaskQueue() = default;
+    static TaskQueue* m_taskQ;
+};
+TaskQueue* TaskQueue::m_taskQ = nullptr;
+
